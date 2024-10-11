@@ -19,18 +19,21 @@
       background-color: beige;
       padding: 20px;
       margin: 0 auto;
-      max-width: 1200px;
+      max-width: 95%; /* Adjust container size */
       border-radius: 10px;
     }
 
     .row {
       display: flex;
+      flex-wrap: wrap; /* Enable wrapping of visualizations */
       justify-content: space-around;
       margin-bottom: 20px;
     }
 
     .vis-box {
-      width: 45%;
+      flex: 1 1 45%; /* Allow boxes to shrink and grow */
+      min-width: 300px; /* Ensure a minimum width for smaller screens */
+      margin: 10px;
     }
 
     h1 {
@@ -39,6 +42,12 @@
 
     p {
       color: black;
+    }
+
+    @media (max-width: 768px) {
+      .vis-box {
+        flex: 1 1 100%; /* On smaller screens, take full width */
+      }
     }
   </style>
 </head>
