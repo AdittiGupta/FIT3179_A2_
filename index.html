@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Overtourism Visualizations</title>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <h1>Overtourism and Undertourism in the World</h1>
+
+  <!-- Container for the first visualization -->
+  <div id="vis1"></div>
+  <script type="text/javascript">
+    var spec1 = "visualization.vl_overtourism_geo.json";
+    vegaEmbed('#vis1', spec1).then(function(result) {
+      // Access the Vega view instance as result.view
+    }).catch(console.error);
+  </script>
+
+  <!-- Container for the second visualization -->
+  <div id="vis2"></div>
+  <script type="text/javascript">
+    var spec2 = "visualization.vl_undertourism_geo.json"; 
+    vegaEmbed('#vis2', spec2).then(function(result) {
+      // Access the Vega view instance as result.view
+    }).catch(console.error);
+  </script>
+
+  <!-- Container for the third visualization -->
+  <div id="vis3"></div>
+  <script type="text/javascript">
+    var spec3 = "visualization.vl_overtourism_bar.json"; 
+    vegaEmbed('#vis3', spec3).then(function(result) {
+      // Access the Vega view instance as result.view
+    }).catch(console.error);
+  </script>
+
+  <!-- Container for the fourth visualization -->
+  <div id="vis4"></div>
+  <script type="text/javascript">
+    var spec4 = "visualization.vl_undertourism_bar.json"; // Assuming this is a different file
+    vegaEmbed('#vis4', spec4).then(function(result) {
+      // Access the Vega view instance as result.view
+    }).catch(console.error);
+  </script>
+
+</body>
+</html>
