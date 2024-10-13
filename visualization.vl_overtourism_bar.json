@@ -3,7 +3,7 @@
   "width": 800,
   "height": 450,
   "title": {
-    "Overtourism Percentage",
+    "text": "Overtourism Percentage",
     "fontSize": 16,
     "fontWeight": "bold"
   }
