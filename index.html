@@ -21,18 +21,18 @@
             padding: 20px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             max-width: 1200px;
-            margin: 20px auto; /* Center and separate the container */
+            margin: 30px auto; /* Separation between containers */
         }
         h1 {
             text-align: center;
             color: #333;
         }
         .visualization-container {
-            margin: 50px 0; /* Ensure proper separation between containers */
+            margin: 50px 0; /* Proper separation between visualization containers */
         }
         .visualization {
-            width: 100%; /* Fixed width */
-            height: auto;
+            width: 100%; /* Fixed width for the graph container */
+            height: auto; /* Allow height to adjust based on content */
             padding: 15px; /* Padding inside the container */
             overflow: hidden;
             border-radius: 10px;
@@ -43,30 +43,30 @@
             margin-top: 10px;
         }
 
-        /* Specific container sizes based on content */
+        /* Custom container sizes for each visualization */
         #overtourism_geo {
-            height: 500px;
+            height: 550px; /* Adjust height to avoid cutting off the graph */
         }
         #undertourism_geo {
-            height: 450px;
-        }
-        #overtourism_bar {
-            height: 400px;
-        }
-        #undertourism_line {
-            height: 350px;
-        }
-        #wtdi_bubble {
             height: 500px;
         }
-        #wtdi_treemap {
+        #overtourism_bar {
             height: 450px;
+        }
+        #undertourism_line {
+            height: 400px;
+        }
+        #wtdi_bubble {
+            height: 550px;
+        }
+        #wtdi_treemap {
+            height: 500px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Tourism in the World</h1>
+        <h1>Tourism World</h1>
 
         <div class="visualization-container">
             <div id="overtourism_geo" class="visualization"></div>
