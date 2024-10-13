@@ -1,132 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Overtourism Visualizations</title>
-  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-  <style>
-    body {
-      background-color: brown;
-      color: white;
-      font-family: Arial, sans-serif;
-      text-align: center;
-    }
-
-    .container {
-      background-color: beige;
-      padding: 20px;
-      margin: 0 auto;
-      max-width: 95%; /* Adjust container size */
-      border-radius: 10px;
-    }
-
-    .row {
-      display: flex;
-      flex-wrap: wrap; /* Enable wrapping of visualizations */
-      justify-content: space-around;
-      margin-bottom: 20px;
-    }
-
-    .vis-box {
-      flex: 1 1 45%; /* Allow boxes to shrink and grow */
-      min-width: 300px; /* Ensure a minimum width for smaller screens */
-      margin: 10px;
-    }
-
-    h1 {
-      color: white;
-    }
-
-    p {
-      color: black;
-    }
-
-    @media (max-width: 768px) {
-      .vis-box {
-        flex: 1 1 100%; /* On smaller screens, take full width */
-      }
-    }
-  </style>
-</head>
-<body>
-  <h1>Overtourism and Undertourism in the World</h1>
-
-  <div class="container">
-    
-    <!-- First row with vis1 and vis2 -->
-    <div class="row">
-      <div class="vis-box">
-        <div id="vis1"></div>
-        <p>Visualization 1: Overtourism hotspots across the world.</p>
-      </div>
-      <div class="vis-box">
-        <div id="vis2"></div>
-        <p>Visualization 2: Locations experiencing undertourism globally.</p>
-      </div>
-    </div>
-
-    <!-- Second row with vis3 and vis4 -->
-    <div class="row">
-      <div class="vis-box">
-        <div id="vis3"></div>
-        <p>Visualization 3: Bar chart showing top overtourism destinations.</p>
-      </div>
-      <div class="vis-box">
-        <div id="vis4"></div>
-        <p>Visualization 4: Comparison of undertourism data by region.</p>
-      </div>
-    </div>
-    
-  </div>
-
-  <script type="text/javascript">
-    // First visualization (Overtourism map)
-    var spec1 = "visualization.vl_overtourism_geo.json";
-    vegaEmbed('#vis1', spec1).then(function(result) {
-      // Add annotation (for example: labeling a country)
-      const view = result.view;
-      view.addSignalListener('click', function(event, item) {
-        console.log("Annotation added on click:", item);
-      });
-    }).catch(console.error);
-
-    // Second visualization (Undertourism map)
-    var spec2 = "visualization.vl_undertourism_geo.json";
-    vegaEmbed('#vis2', spec2).then(function(result) {
-      // Add annotation (for example: labeling a region)
-      const view = result.view;
-      view.addSignalListener('click', function(event, item) {
-        console.log("Annotation added on click:", item);
-      });
-    }).catch(console.error);
-
-    // Third visualization (Overtourism bar chart)
-    var spec3 = "visualization.vl_overtourism_bar.json";
-    vegaEmbed('#vis3', spec3).then(function(result) {
-      // Add annotation (for example: highlighting top destination)
-      const view = result.view;
-      view.addSignalListener('click', function(event, item) {
-        console.log("Annotation added on click:", item);
-      });
-    }).catch(console.error);
-
-    // Fourth visualization (Undertourism bar chart)
-    var spec4 = "visualization.vl_undertourism_bar.json";
-    vegaEmbed('#vis4', spec4).then(function(result) {
-      // Add annotation (for example: labeling a region)
-      const view = result.view;
-      view.addSignalListener('click', function(event, item) {
-        console.log("Annotation added on click:", item);
-      });
-    }).catch(console.error);
-  </script>
-
-</body>
-</html> -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -140,21 +11,40 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-color: #6F4C3E; /* Brown background */
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            background-color: white; /* White container */
+            border-radius: 15px; /* Rounded corners */
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            max-width: 800px; /* Maximum width for the container */
+            margin: 0 auto; /* Center the container */
+        }
+        h1 {
+            text-align: center;
+            color: #333; /* Darker text for the heading */
         }
         .visualization {
-            margin: 20px;
+            margin: 20px 0; /* Space between visualizations */
+            display: flex;
+            justify-content: center; /* Center visualizations */
         }
     </style>
 </head>
 <body>
-    <h1>Tourism Visualizations</h1>
+    <div class="container">
+        <h1>Tourism Visualizations</h1>
 
-    <div id="overtourism_geo" class="visualization"></div>
-    <div id="undertourism_geo" class="visualization"></div>
-    <div id="overtourism_bar" class="visualization"></div>
-    <div id="undertourism_line" class="visualization"></div>
-    <div id="wtdi_bubble" class="visualization"></div>
-    <div id="wtdi_treemap" class="visualization"></div>
+        <div id="overtourism_geo" class="visualization"></div>
+        <div id="undertourism_geo" class="visualization"></div>
+        <div id="overtourism_bar" class="visualization"></div>
+        <div id="undertourism_line" class="visualization"></div>
+        <div id="wtdi_bubble" class="visualization"></div>
+        <div id="wtdi_treemap" class="visualization"></div>
+    </div>
 
     <script>
         // Function to embed Vega-Lite visualization
