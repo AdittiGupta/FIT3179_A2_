@@ -28,17 +28,16 @@
             color: #333;
         }
         .visualization-container {
-            margin: 50px 0; /* Separation between visualization containers */
-            display: flex; /* Enables flexbox layout */
-            justify-content: center; /* Centers child elements horizontally */
+            margin: 50px 0; /* Proper separation between visualization containers */
+            text-align: center; /* Centering the graphs */
         }
         .visualization {
-            width: 100%; /* Flexible width for the graph container */
-            max-width: 1000px; /* Restricts the maximum width to prevent overflow */
+            width: 90%; /* Restrict width to 90% to prevent overflow */
+            max-width: 1000px; /* Set a max width to avoid the graphs becoming too wide */
             height: auto; /* Allow height to adjust based on content */
             padding: 15px;
-            overflow: hidden;
             border-radius: 10px;
+            margin: 0 auto; /* Center the graphs horizontally */
         }
         .description {
             text-align: center;
@@ -69,7 +68,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Tourism</h1>
+        <h1>Tourism in the World</h1>
 
         <div class="visualization-container">
             <div id="overtourism_geo" class="visualization"></div>
