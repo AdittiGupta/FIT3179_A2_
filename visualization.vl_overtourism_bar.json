@@ -4,7 +4,7 @@
   "height": 450,
   "title": {
     "text": "Overtourism Percentage",
-    "fontSize": 16,
+    "fontSize": 30,
     "fontWeight": "bold"
   }
   "data": {
