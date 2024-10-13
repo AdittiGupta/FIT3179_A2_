@@ -6,7 +6,7 @@
     "text": "Overtourism in the World",
     "fontSize": 30,
     "fontWeight": "bold"
-  }
+  },
   "projection": {"type": "equalEarth"},
   "layer": [
     {
