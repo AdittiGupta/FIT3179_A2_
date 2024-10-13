@@ -4,6 +4,114 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tourism Visualizations</title>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        #heading, #visualizations, #credits {
+            padding: 20px;
+            text-align: center;
+        }
+        #heading h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .vis-container {
+            margin: 20px auto;
+            width: 90%;
+        }
+        #credits {
+            font-size: 1.2em;
+            margin-top: 40px;
+        }
+        .text-description {
+            margin-top: 10px;
+            font-size: 1em;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Heading Container -->
+    <div id="heading">
+        <h1>Tourism Visualizations</h1>
+    </div>
+
+    <!-- Visualizations Container -->
+    <div id="visualizations">
+
+        <!-- Overtourism Geo -->
+        <div class="vis-container">
+            <div id="overtourism-geo"></div>
+            <p class="text-description">This visualization shows areas with overtourism.</p>
+        </div>
+
+        <!-- Undertourism Geo -->
+        <div class="vis-container">
+            <div id="undertourism-geo"></div>
+            <p class="text-description">This visualization displays regions with undertourism.</p>
+        </div>
+
+        <!-- Overtourism Bar Chart -->
+        <div class="vis-container">
+            <div id="overtourism-bar"></div>
+            <p class="text-description">Bar chart showing overtourism percentages across countries.</p>
+        </div>
+
+        <!-- Undertourism Line Chart -->
+        <div class="vis-container">
+            <div id="undertourism-line"></div>
+            <p class="text-description">Line chart depicting undertourism trends over the years.</p>
+        </div>
+
+        <!-- World Tourism Development Bubble -->
+        <div class="vis-container">
+            <div id="wtdi-bubble"></div>
+            <p class="text-description">Bubble chart representing tourism development index of top 50 countries.</p>
+        </div>
+
+        <!-- World Tourism Development Treemap -->
+        <div class="vis-container">
+            <div id="wtdi-treemap"></div>
+            <p class="text-description">Treemap visualization for tourism development indicators.</p>
+        </div>
+
+    </div>
+
+    <!-- Credits Container -->
+    <div id="credits">
+        <p>Visualisation by Aditti Gupta</p>
+    </div>
+
+    <!-- Embedding Vega-Lite Visualizations -->
+    <script type="text/javascript">
+        vegaEmbed('#overtourism-geo', 'visualization.vl_overtourism_geo.json').catch(console.error);
+        vegaEmbed('#undertourism-geo', 'visualization.vl_undertourism_geo.json').catch(console.error);
+        vegaEmbed('#overtourism-bar', 'visualization.vl_overtourism_bar.json').catch(console.error);
+        vegaEmbed('#undertourism-line', 'visualization.vl_undertourism_line.json').catch(console.error);
+        vegaEmbed('#wtdi-bubble', 'Wtdi_bubble.json').catch(console.error);
+        vegaEmbed('#wtdi-treemap', 'Wtdi_treemap.json').catch(console.error);
+    </script>
+    
+</body>
+</html>
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tourism Visualizations</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vega-lite@5.5.0/build/vega-lite.css">
     <script src="https://cdn.jsdelivr.net/npm/vega@5.23.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.5.0"></script>
@@ -120,3 +228,4 @@
     </script>
 </body>
 </html>
+ -->
