@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
     "text": "Tourism Development Index Values (Top 50 Countries)",
-    "fontSize": 16,
+    "fontSize": 30,
     "fontWeight": "bold"
   },
   "data": {
