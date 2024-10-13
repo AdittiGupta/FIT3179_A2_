@@ -2,7 +2,11 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 800,
   "height": 450,
-  "title": "Undertourism in the World",
+  "title": {
+    "text": "Undertourism in the World",
+    "fontSize": 16,
+    "fontWeight": "bold"
+  }
   "projection": {"type": "equalEarth"},
   "layer": [
     {"data": {"sphere": true}, "mark": {"type": "geoshape", "fill": "#a9def9"}},
