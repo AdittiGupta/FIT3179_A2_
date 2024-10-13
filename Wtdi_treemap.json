@@ -1,0 +1,70 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "World Tourism Development Index Per Region 2024",
+    "fontSize": 20
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/AdittiGupta/FIT3179_A2_/refs/heads/main/World%20Tourism%20Development%20Index.csv"
+  },
+  "params": [
+    {
+      "name": "selectedIncomeGroup",
+      "value": "All",
+      "bind": {
+        "input": "select",
+        "options": [
+          "All",
+          "High-Income Economies",
+          "Upper-Middle-Income Economies",
+          "Lower-Middle-Income Economies",
+          "Low-Income Economies"
+        ],
+        "name": "Income Group: "
+      }
+    },
+    {
+      "name": "showAll",
+      "value": false,
+      "bind": {"input": "checkbox", "name": "Show All Countries"}
+    }
+  ],
+  "transform": [
+    {
+      "window": [{"op": "rank", "as": "rank"}],
+      "sort": [{"field": "2024 Value", "order": "descending"}]
+    },
+    {"filter": "showAll || datum.rank <= 50"},
+    {
+      "filter": "selectedIncomeGroup === 'All' || datum['Income Group'] === selectedIncomeGroup"
+    }
+  ],
+  "mark": "rect",
+  "encoding": {
+    "x": {
+      "field": "Country",
+      "type": "nominal",
+      "sort": "-y",
+      "title": "Country"
+    },
+    "y": {"field": "Region", "type": "nominal", "title": "Region"},
+    "size": {
+      "field": "2024 Value",
+      "type": "quantitative",
+      "title": "2024 Value"
+    },
+    "color": {
+      "field": "Income Group",
+      "type": "nominal",
+      "title": "Income Group",
+      "scale": {"scheme": "category20"}
+    },
+    "tooltip": [
+      {"field": "Country", "title": "Country"},
+      {"field": "Region", "title": "Region"},
+      {"field": "Income Group", "title": "Income Group"},
+      {"field": "2024 Value", "title": "2024 Value"}
+    ]
+  },
+  "config": {"mark": {"tooltip": true}}
+}

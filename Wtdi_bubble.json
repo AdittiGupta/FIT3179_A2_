@@ -1,0 +1,52 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Tourism Development Index Values (Top 50 Countries)",
+    "fontSize": 16,
+    "fontWeight": "bold"
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/AdittiGupta/FIT3179_A2_/refs/heads/main/World%20Tourism%20Development%20Index.csv"
+  },
+  "transform": [
+    {
+      "fold": ["2019 Value", "2021 Value", "2024 Value"],
+      "as": ["Year", "Value"]
+    },
+    {
+      "window": [{"op": "rank", "as": "rank"}],
+      "sort": [{"field": "Value", "order": "descending"}]
+    },
+    {"filter": "datum.rank <= 50"},
+    {"calculate": "50 - datum.rank", "as": "sizeRank"}
+  ],
+  "mark": {"type": "circle", "tooltip": true},
+  "encoding": {
+    "x": {"field": "Year", "type": "nominal", "title": "Year"},
+    "y": {
+      "field": "Value",
+      "type": "quantitative",
+      "title": "Tourism Development Index Value",
+      "scale": {"domain": [4.6, 5.35]}
+    },
+    "size": {
+      "field": "sizeRank",
+      "type": "quantitative",
+      "title": "Size Based on Rank",
+      "scale": {"range": [20, 300]}
+    },
+    "color": {
+      "field": "Country",
+      "type": "nominal",
+      "scale": {"scheme": "category10"},
+      "title": "Country"
+    },
+    "tooltip": [
+      {"field": "Country", "type": "nominal"},
+      {"field": "Year", "type": "nominal"},
+      {"field": "Value", "type": "quantitative"},
+      {"field": "rank", "type": "quantitative"}
+    ]
+  },
+  "config": {}
+}
