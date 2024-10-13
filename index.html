@@ -15,65 +15,70 @@
             margin: 0;
             padding: 20px;
         }
+
         .container {
             background-color: white;
             border-radius: 15px;
             padding: 20px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             margin: 20px auto;
+            max-width: 1200px; /* Set a max width for the whole container */
         }
+
         h1 {
             text-align: center;
             color: #333;
+            margin-bottom: 50px;
         }
+
         .visualization-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin: 40px 0;
+            margin-bottom: 50px; /* Separation between visualizations */
         }
+
         .visualization {
-            overflow: hidden;
             display: flex;
             justify-content: center;
             align-items: center;
             margin-bottom: 15px;
+            overflow: hidden;
+            border: 1px solid #ddd;
+            border-radius: 10px;
         }
+
         .description {
             text-align: center;
             color: #666;
             margin-top: 10px;
         }
 
-        /* Custom sizes for each graph */
+        /* Specific sizes for each visualization */
         #overtourism_geo {
-            width: 100%;
-            max-width: 1000px;
-            height: 500px; /* Larger for map visualizations */
+            width: 90%;
+            height: 600px;
         }
+
         #undertourism_geo {
-            width: 100%;
-            max-width: 1000px;
-            height: 500px; /* Large container for map */
+            width: 90%;
+            height: 500px;
         }
+
         #overtourism_bar {
-            width: 85%; /* Smaller for bar chart */
-            max-width: 800px;
+            width: 80%;
             height: 400px;
         }
+
         #undertourism_line {
-            width: 85%;
-            max-width: 800px;
+            width: 80%;
             height: 350px;
         }
+
         #wtdi_bubble {
-            width: 90%;
-            max-width: 850px;
+            width: 85%;
             height: 450px;
         }
+
         #wtdi_treemap {
             width: 85%;
-            max-width: 850px;
             height: 450px;
         }
     </style>
@@ -86,22 +91,27 @@
             <div id="overtourism_geo" class="visualization"></div>
             <div class="description">Overtourism Geographic Visualization</div>
         </div>
+
         <div class="visualization-container">
             <div id="undertourism_geo" class="visualization"></div>
             <div class="description">Undertourism Geographic Visualization</div>
         </div>
+
         <div class="visualization-container">
             <div id="overtourism_bar" class="visualization"></div>
             <div class="description">Overtourism Bar Chart Visualization</div>
         </div>
+
         <div class="visualization-container">
             <div id="undertourism_line" class="visualization"></div>
             <div class="description">Undertourism Line Chart Visualization</div>
         </div>
+
         <div class="visualization-container">
             <div id="wtdi_bubble" class="visualization"></div>
             <div class="description">WTDI Bubble Chart Visualization</div>
         </div>
+
         <div class="visualization-container">
             <div id="wtdi_treemap" class="visualization"></div>
             <div class="description">WTDI Treemap Visualization</div>
@@ -111,8 +121,7 @@
     <script>
         // Function to embed Vega-Lite visualization
         function embedVegaLite(containerId, jsonUrl) {
-            vegaEmbed(containerId, jsonUrl)
-                .catch(console.error);
+            vegaEmbed(containerId, jsonUrl).catch(console.error);
         }
 
         // Embedding the visualizations
