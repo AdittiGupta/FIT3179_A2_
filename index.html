@@ -16,46 +16,71 @@
             padding: 20px;
         }
         .container {
-            background-color: white; /* White container */
-            border-radius: 15px; /* Rounded corners */
+            background-color: white;
+            border-radius: 15px;
             padding: 20px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            max-width: 800px; /* Maximum width for the container */
-            margin: 0 auto; /* Center the container */
+            margin: 20px auto;
         }
         h1 {
             text-align: center;
-            color: #333; /* Darker text for the heading */
+            color: #333;
         }
         .visualization-container {
-            margin: 20px 0; /* Space between visualization containers */
             display: flex;
-            flex-direction: column; /* Stack visualization and text vertically */
-            align-items: center; /* Center the items */
-            width: fit-content; /* Size of the container adjusts to content */
-            margin-left: auto; /* Centering container in the available space */
-            margin-right: auto; /* Centering container in the available space */
+            flex-direction: column;
+            align-items: center;
+            margin: 40px 0;
         }
         .visualization {
-            width: 100%; /* Full width of the visualization container */
+            overflow: hidden;
             display: flex;
-            justify-content: center; /* Center the visualization */
-            align-items: center; /* Center the visualization vertically */
-            overflow: hidden; /* Hide overflow */
-            padding: 10px; /* Padding around the visualization */
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow for the visualization */
-            border-radius: 10px; /* Rounded corners for the visualization */
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 15px;
         }
         .description {
-            text-align: center; /* Center the description text */
-            color: #666; /* Lighter color for the description */
-            margin-top: 5px; /* Space above the description text */
+            text-align: center;
+            color: #666;
+            margin-top: 10px;
+        }
+
+        /* Custom sizes for each graph */
+        #overtourism_geo {
+            width: 100%;
+            max-width: 1000px;
+            height: 500px; /* Larger for map visualizations */
+        }
+        #undertourism_geo {
+            width: 100%;
+            max-width: 1000px;
+            height: 500px; /* Large container for map */
+        }
+        #overtourism_bar {
+            width: 85%; /* Smaller for bar chart */
+            max-width: 800px;
+            height: 400px;
+        }
+        #undertourism_line {
+            width: 85%;
+            max-width: 800px;
+            height: 350px;
+        }
+        #wtdi_bubble {
+            width: 90%;
+            max-width: 850px;
+            height: 450px;
+        }
+        #wtdi_treemap {
+            width: 85%;
+            max-width: 850px;
+            height: 450px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Tourism Visualizations</h1>
+        <h1>Tourism in the World</h1>
 
         <div class="visualization-container">
             <div id="overtourism_geo" class="visualization"></div>
