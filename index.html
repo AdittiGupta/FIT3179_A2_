@@ -1,67 +1,121 @@
-{
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 800,
-  "height": 450,
-  "title": "Undertourism in the World",
-  "autosize": {
-    "type": "fit",
-    "contains": "padding"
-  },
-  "projection": {
-    "type": "equalEarth",
-    "scale": 160,  // Adjusted the scale for a better fit
-    "translate": [400, 225]  // Centering the projection within the viewbox
-  },
-  "layer": [
-    {
-      "data": {"sphere": true},
-      "mark": {"type": "geoshape", "fill": "#a9def9"}  // Ocean layer with light blue fill
-    },
-    {
-      "data": {"graticule": true},
-      "mark": {"type": "geoshape", "stroke": "lightblue", "strokeWidth": 0.5}  // Graticules (grid lines)
-    },
-    {
-      "data": {
-        "url": "https://raw.githubusercontent.com/AdittiGupta/FIT3179_A2_/refs/heads/main/ne_110m.json",
-        "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
-      },
-      "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"},
-      "encoding": {
-        "tooltip": [
-          {"field": "properties.name", "type": "nominal", "title": "Country"}
-        ]
-      }
-    },
-    {
-      "data": {
-        "url": "https://raw.githubusercontent.com/AdittiGupta/FIT3179_A2_/refs/heads/main/Undertourism.csv"
-      },
-      "mark": {"type": "circle", "tooltip": {"content": "data"}},
-      "encoding": {
-        "longitude": {"field": "Longitude", "type": "quantitative"},
-        "latitude": {"field": "Latitude", "type": "quantitative"},
-        "size": {
-          "field": "Tourists",
-          "type": "quantitative",
-          "title": "Number of Tourists",
-          "scale": {"domain": [3000000, 60000000], "range": [100, 300]}
-        },
-        "color": {
-          "field": "Locals",
-          "type": "quantitative",
-          "title": "Number of Locals",
-          "scale": {"domain": [3000000, 100000000], "scheme": "greens"}
-        },
-        "tooltip": [
-          {"field": "Country", "title": "Country"},
-          {"field": "Tourists", "title": "Number of Tourists"},
-          {"field": "Locals", "title": "Number of Locals"},
-          {"field": "Longitude", "title": "Longitude"},
-          {"field": "Latitude", "title": "Latitude"}
-        ]
-      }
-    }
-  ],
-  "config": {}
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tourism Visualizations</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vega-lite@5.5.0/build/vega-lite.css">
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.23.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.5.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.19.1"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #6F4C3E; /* Brown background */
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            background-color: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            max-width: 1200px;
+            margin: 30px auto; /* Separation between containers */
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .visualization-container {
+            margin: 50px 0; /* Proper separation between visualization containers */
+        }
+        .visualization {
+            display: flex; /* Enable flexbox */
+            justify-content: center; /* Center the content horizontally */
+            align-items: center; /* Center the content vertically if needed */
+            width: 100%; /* Full width of the container */
+            max-width: 100%; /* Ensure it doesn't exceed container width */
+            height: auto; /* Allow height to adjust based on content */
+            padding: 15px; /* Padding inside the container */
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        .description {
+            text-align: center;
+            color: #666;
+            margin-top: 10px;
+        }
+
+        /* Custom container sizes for each visualization */
+        #overtourism_geo {
+            height: 550px; /* Adjust height to avoid cutting off the graph */
+        }
+        #undertourism_geo {
+            height: 500px;
+        }
+        #overtourism_bar {
+            height: 450px;
+        }
+        #undertourism_line {
+            height: 400px;
+        }
+        #wtdi_bubble {
+            height: 550px;
+        }
+        #wtdi_treemap {
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Tourism in the World</h1>
+
+        <div class="visualization-container">
+            <div id="overtourism_geo" class="visualization"></div>
+            <div class="description">Overtourism Geographic Visualization</div>
+        </div>
+
+        <div class="visualization-container">
+            <div id="undertourism_geo" class="visualization"></div>
+            <div class="description">Undertourism Geographic Visualization</div>
+        </div>
+
+        <div class="visualization-container">
+            <div id="overtourism_bar" class="visualization"></div>
+            <div class="description">Overtourism Bar Chart Visualization</div>
+        </div>
+
+        <div class="visualization-container">
+            <div id="undertourism_line" class="visualization"></div>
+            <div class="description">Undertourism Line Chart Visualization</div>
+        </div>
+
+        <div class="visualization-container">
+            <div id="wtdi_bubble" class="visualization"></div>
+            <div class="description">WTDI Bubble Chart Visualization</div>
+        </div>
+
+        <div class="visualization-container">
+            <div id="wtdi_treemap" class="visualization"></div>
+            <div class="description">WTDI Treemap Visualization</div>
+        </div>
+    </div>
+
+    <script>
+        // Function to embed Vega-Lite visualization
+        function embedVegaLite(containerId, jsonUrl) {
+            vegaEmbed(containerId, jsonUrl).catch(console.error);
+        }
+
+        // Embedding the visualizations
+        embedVegaLite('#overtourism_geo', 'visualization.vl_overtourism_geo.json');
+        embedVegaLite('#undertourism_geo', 'visualization.vl_undertourism_geo.json');
+        embedVegaLite('#overtourism_bar', 'visualization.vl_overtourism_bar.json');
+        embedVegaLite('#undertourism_line', 'visualization.vl_undertourism_line.json');
+        embedVegaLite('#wtdi_bubble', 'Wtdi_bubble.json');
+        embedVegaLite('#wtdi_treemap', 'Wtdi_treemap.json');
+    </script>
+</body>
+</html>
