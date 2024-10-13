@@ -2,7 +2,11 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 800,
   "height": 450,
-  "title": "Overtourism in the World",
+  "title": {
+    "text": "Overtourism in the World",
+    "fontSize": 16,
+    "fontWeight": "bold"
+  }
   "projection": {"type": "equalEarth"},
   "layer": [
     {
