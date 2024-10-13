@@ -21,28 +21,24 @@
             padding: 20px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             max-width: 1200px;
-            margin: 30px auto; /* Separation between containers */
+            margin: 30px auto; /* Centers the container */
         }
         h1 {
             text-align: center;
             color: #333;
         }
         .visualization-container {
-            margin: 50px 0; /* Proper separation between visualization containers */
+            margin: 50px 0; /* Separation between visualization containers */
+            display: flex; /* Enables flexbox layout */
+            justify-content: center; /* Centers child elements horizontally */
         }
         .visualization {
-            display: flex; /* Enable flexbox */
-            justify-content: center; /* Center the content horizontally */
-            align-items: center; /* Center the content vertically if needed */
-            width: 100%; /* Full width of the container */
+            width: 100%; /* Flexible width for the graph container */
+            max-width: 1000px; /* Restricts the maximum width to prevent overflow */
             height: auto; /* Allow height to adjust based on content */
-            padding: 15px; /* Padding inside the container */
+            padding: 15px;
             overflow: hidden;
             border-radius: 10px;
-        }
-        .vega-embed {
-            width: 100% !important; /* Force Vega embed to take full width */
-            height: auto !important; /* Allow height to adjust automatically */
         }
         .description {
             text-align: center;
@@ -73,7 +69,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Tourism in the World</h1>
+        <h1>Tourism</h1>
 
         <div class="visualization-container">
             <div id="overtourism_geo" class="visualization"></div>
