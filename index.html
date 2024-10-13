@@ -15,70 +15,51 @@
             margin: 0;
             padding: 20px;
         }
-
         .container {
             background-color: white;
             border-radius: 15px;
             padding: 20px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            margin: 20px auto;
-            max-width: 1200px; /* Set a max width for the whole container */
+            max-width: 1200px;
+            margin: 20px auto; /* Center and separate the container */
         }
-
         h1 {
             text-align: center;
             color: #333;
-            margin-bottom: 50px;
         }
-
         .visualization-container {
-            margin-bottom: 50px; /* Separation between visualizations */
+            margin: 50px 0; /* Ensure proper separation between containers */
         }
-
         .visualization {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 15px;
+            width: 100%; /* Fixed width */
+            height: auto;
+            padding: 15px; /* Padding inside the container */
             overflow: hidden;
-            border: 1px solid #ddd;
             border-radius: 10px;
         }
-
         .description {
             text-align: center;
             color: #666;
             margin-top: 10px;
         }
 
-        /* Specific sizes for each visualization */
+        /* Specific container sizes based on content */
         #overtourism_geo {
-            width: 90%;
-            height: 600px;
-        }
-
-        #undertourism_geo {
-            width: 90%;
             height: 500px;
         }
-
-        #overtourism_bar {
-            width: 80%;
-            height: 400px;
-        }
-
-        #undertourism_line {
-            width: 80%;
-            height: 350px;
-        }
-
-        #wtdi_bubble {
-            width: 85%;
+        #undertourism_geo {
             height: 450px;
         }
-
+        #overtourism_bar {
+            height: 400px;
+        }
+        #undertourism_line {
+            height: 350px;
+        }
+        #wtdi_bubble {
+            height: 500px;
+        }
         #wtdi_treemap {
-            width: 85%;
             height: 450px;
         }
     </style>
