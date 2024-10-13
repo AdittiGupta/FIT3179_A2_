@@ -2,9 +2,11 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 800,
   "height": 450,
-  "title": "Overtourism Percentage",
-  "fontSize": 16,
-  "fontWeight": "bold"
+  "title": {
+    "Overtourism Percentage",
+    "fontSize": 16,
+    "fontWeight": "bold"
+  }
   "data": {
     "url": "https://raw.githubusercontent.com/AdittiGupta/FIT3179_A2_/refs/heads/main/Overtourism%20Percentage.csv"
   },
