@@ -6,7 +6,7 @@
     "text": "Undertourism in the World",
     "fontSize": 30,
     "fontWeight": "bold"
-  }
+  },
   "projection": {"type": "equalEarth"},
   "layer": [
     {"data": {"sphere": true}, "mark": {"type": "geoshape", "fill": "#a9def9"}},
