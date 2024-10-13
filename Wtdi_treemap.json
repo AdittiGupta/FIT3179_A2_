@@ -2,7 +2,8 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
     "text": "World Tourism Development Index Per Region 2024",
-    "fontSize": 20
+    "fontSize": 40,
+    "fontWeight": "bold"
   },
   "data": {
     "url": "https://raw.githubusercontent.com/AdittiGupta/FIT3179_A2_/refs/heads/main/World%20Tourism%20Development%20Index.csv"
