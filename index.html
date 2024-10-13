@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -124,5 +124,52 @@
     }).catch(console.error);
   </script>
 
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tourism Visualizations</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vega-lite@5.5.0/build/vega-lite.css">
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.23.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.5.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.19.1"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .visualization {
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tourism Visualizations</h1>
+
+    <div id="overtourism_geo" class="visualization"></div>
+    <div id="undertourism_geo" class="visualization"></div>
+    <div id="overtourism_bar" class="visualization"></div>
+    <div id="undertourism_line" class="visualization"></div>
+    <div id="wtdi_bubble" class="visualization"></div>
+    <div id="wtdi_treemap" class="visualization"></div>
+
+    <script>
+        // Function to embed Vega-Lite visualization
+        function embedVegaLite(containerId, jsonUrl) {
+            vegaEmbed(containerId, jsonUrl)
+                .catch(console.error);
+        }
+
+        // Embedding the visualizations
+        embedVegaLite('#overtourism_geo', 'visualization.vl_overtourism_geo.json');
+        embedVegaLite('#undertourism_geo', 'visualization.vl_undertourism_geo.json');
+        embedVegaLite('#overtourism_bar', 'visualization.vl_overtourism_bar.json');
+        embedVegaLite('#undertourism_line', 'visualization.vl_undertourism_line.json');
+        embedVegaLite('#wtdi_bubble', 'Wtdi_bubble.json');
+        embedVegaLite('#wtdi_treemap', 'Wtdi_treemap.json');
+    </script>
 </body>
 </html>
