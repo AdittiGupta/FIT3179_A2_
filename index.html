@@ -17,6 +17,129 @@
         #heading, #visualizations, #credits {
             padding: 20px;
             text-align: center;
+            background-color: white; /* Ensures heading and credits have white background */
+        }
+        #heading h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: black; /* Black text for the heading */
+        }
+        .vis-container {
+            margin: 40px auto;
+            padding: 20px;
+            width: 90%;
+            background-color: white; /* White background for visualization containers */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adding subtle shadow */
+            border-radius: 10px; /* Rounded corners */
+        }
+        #credits {
+            font-size: 1.2em;
+            margin-top: 40px;
+            color: black; /* Black text for credits */
+        }
+        .text-description {
+            margin-top: 10px;
+            font-size: 1em;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Heading Container -->
+    <div id="heading">
+        <h1>Tourism Visualizations</h1>
+    </div>
+
+    <!-- Visualizations Container -->
+    <div id="visualizations">
+
+        <!-- Overtourism Geo -->
+        <div class="vis-container">
+            <div id="overtourism-geo"></div>
+            <p class="text-description">This visualization shows areas with overtourism.</p>
+        </div>
+
+        <!-- Undertourism Geo -->
+        <div class="vis-container">
+            <div id="undertourism-geo"></div>
+            <p class="text-description">This visualization displays regions with undertourism.</p>
+        </div>
+
+        <!-- Overtourism Bar Chart -->
+        <div class="vis-container">
+            <div id="overtourism-bar"></div>
+            <p class="text-description">Bar chart showing overtourism percentages across countries.</p>
+        </div>
+
+        <!-- Undertourism Line Chart -->
+        <div class="vis-container">
+            <div id="undertourism-line"></div>
+            <p class="text-description">Line chart depicting undertourism trends over the years.</p>
+        </div>
+
+        <!-- World Tourism Development Bubble -->
+        <div class="vis-container">
+            <div id="wtdi-bubble"></div>
+            <p class="text-description">Bubble chart representing tourism development index of top 50 countries.</p>
+        </div>
+
+        <!-- World Tourism Development Treemap -->
+        <div class="vis-container">
+            <div id="wtdi-treemap"></div>
+            <p class="text-description">Treemap visualization for tourism development indicators.</p>
+        </div>
+
+    </div>
+
+    <!-- Credits Container -->
+    <div id="credits">
+        <p>Visualisation by Aditti Gupta</p>
+    </div>
+
+    <!-- Embedding Vega-Lite Visualizations -->
+    <script type="text/javascript">
+        // Reduce width for all visualizations to avoid overflow
+        const options = {width: 700, height: 450}; 
+
+        vegaEmbed('#overtourism-geo', 'visualization.vl_overtourism_geo.json', options).catch(console.error);
+        vegaEmbed('#undertourism-geo', 'visualization.vl_undertourism_geo.json', options).catch(console.error);
+        vegaEmbed('#overtourism-bar', 'visualization.vl_overtourism_bar.json', options).catch(console.error);
+        vegaEmbed('#undertourism-line', 'visualization.vl_undertourism_line.json', options).catch(console.error);
+        vegaEmbed('#wtdi-bubble', 'Wtdi_bubble.json', options).catch(console.error);
+        vegaEmbed('#wtdi-treemap', 'Wtdi_treemap.json', options).catch(console.error);
+    </script>
+    
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tourism Visualizations</title>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #8B4513; /* Brown background */
+        }
+        #heading, #visualizations, #credits {
+            padding: 20px;
+            text-align: center;
         }
         #heading h1 {
             font-size: 2em;
@@ -112,126 +235,4 @@
 
 
 
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tourism Visualizations</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vega-lite@5.5.0/build/vega-lite.css">
-    <script src="https://cdn.jsdelivr.net/npm/vega@5.23.0"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.5.0"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.19.1"></script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #6F4C3E; /* Brown background */
-            margin: 0;
-            padding: 20px;
-        }
-        .container {
-            background-color: white;
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            max-width: 1200px;
-            margin: 30px auto; /* Centers the container */
-        }
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-        .visualization-container {
-            margin: 50px 0; /* Proper separation between visualization containers */
-            text-align: center; /* Centering the graphs */
-        }
-        .visualization {
-            width: 90%; /* Restrict width to 90% to prevent overflow */
-            max-width: 1000px; /* Set a max width to avoid the graphs becoming too wide */
-            height: auto; /* Allow height to adjust based on content */
-            padding: 15px;
-            border-radius: 10px;
-            margin: 0 auto; /* Center the graphs horizontally */
-            display: flex; /* Allow flexbox centering */
-            justify-content: center; /* Center the graph */
-            align-items: center; /* Center the graph vertically */
-        }
-        .description {
-            text-align: center;
-            color: #666;
-            margin-top: 10px;
-        }
-
-        /* Custom container sizes for each visualization */
-        #overtourism_geo {
-            height: 550px; /* Adjust height to avoid cutting off the graph */
-        }
-        #undertourism_geo {
-            height: 500px;
-        }
-        #overtourism_bar {
-            height: 450px;
-        }
-        #undertourism_line {
-            height: 400px;
-        }
-        #wtdi_bubble {
-            height: 550px;
-        }
-        #wtdi_treemap {
-            height: 500px;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Tourism in the World</h1>
-
-        <div class="visualization-container">
-            <div id="overtourism_geo" class="visualization"></div>
-            <div class="description">This map-based visualization highlights countries experiencing overtourism, where the influx of tourists outpaces the capacity of local resources. Areas suffering from high tourist density are marked, providing a clear visual representation of the geographic distribution of overtourism hotspots. This is valuable for understanding where overcrowding might be straining local infrastructure and environments.</div>
-        </div>
-
-        <div class="visualization-container">
-            <div id="undertourism_geo" class="visualization"></div>
-            <div class="description">In contrast to the overtourism map, this visualization displays regions where tourism is significantly underdeveloped or lacking. Countries limited tourist engagement are shaded, indicating potential for tourism development. It helps identify destinations that could benefit from increased tourism to bolster their economy or cultural exchanges.</div>
-        </div>
-
-        <div class="visualization-container">
-            <div id="overtourism_bar" class="visualization"></div>
-            <div class="description">This bar chart quantifies the overtourism phenomenon by showing how many tourists outnumber locals in various destinations. Countries are ranked by the ratio of tourists to local residents, providing a stark visual comparison of the extent to which tourism is overwhelming local populations.</div>
-        </div>
-
-        <div class="visualization-container">
-            <div id="undertourism_line" class="visualization"></div>
-            <div class="description">The undertourism line chart tracks the trends of tourist numbers in regions where tourism is still developing. It plots changes in tourist volume over time, helping identify patterns of growth or stagnation. This can be useful for tracking progress in destinations that are seeking to attract more visitors.</div>
-        </div>
-
-        <div class="visualization-container">
-            <div id="wtdi_bubble" class="visualization"></div>
-            <div class="description">This bubble chart uses the World Tourism Development Index to plot countries based on their tourism development scores. The size of each bubble reflects the country’s rank in tourism performance, colour indicates the country, and the positioning indicates the year along with the index value. This visualization offers a broad perspective on how well countries are doing in fostering sustainable tourism.</div>
-        </div>
-
-        <div class="visualization-container">
-            <div id="wtdi_treemap" class="visualization"></div>
-            <div class="description">The treemap groups countries based on income levels, visualizing the distribution of tourism development across different economic categories. Countries are represented by boxes, with the colour corresponds to the economic category. This visualization helps understand how tourism development varies across different income groups and geographic regions. Here, all the countries are included but to begin with, only Top 50 are shown.</div>
-        </div>
-    </div>
-
-    <script>
-        // Function to embed Vega-Lite visualization
-        function embedVegaLite(containerId, jsonUrl) {
-            vegaEmbed(containerId, jsonUrl).catch(console.error);
-        }
-
-        // Embedding the visualizations
-        embedVegaLite('#overtourism_geo', 'visualization.vl_overtourism_geo.json');
-        embedVegaLite('#undertourism_geo', 'visualization.vl_undertourism_geo.json');
-        embedVegaLite('#overtourism_bar', 'visualization.vl_overtourism_bar.json');
-        embedVegaLite('#undertourism_line', 'visualization.vl_undertourism_line.json');
-        embedVegaLite('#wtdi_bubble', 'Wtdi_bubble.json');
-        embedVegaLite('#wtdi_treemap', 'Wtdi_treemap.json');
-    </script>
-</body>
-</html>
  -->
