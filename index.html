@@ -12,6 +12,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #8B4513; /* Brown background */
         }
         #heading, #visualizations, #credits {
             padding: 20px;
@@ -20,14 +21,20 @@
         #heading h1 {
             font-size: 2em;
             margin-bottom: 20px;
+            color: white; /* White heading text */
         }
         .vis-container {
-            margin: 20px auto;
+            margin: 40px auto;
+            padding: 20px;
             width: 90%;
+            background-color: white; /* White background for visualization containers */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adding subtle shadow */
+            border-radius: 10px; /* Rounded corners */
         }
         #credits {
             font-size: 1.2em;
             margin-top: 40px;
+            color: white; /* White text for credits */
         }
         .text-description {
             margin-top: 10px;
@@ -49,37 +56,37 @@
         <!-- Overtourism Geo -->
         <div class="vis-container">
             <div id="overtourism-geo"></div>
-            <p class="text-description">This visualization shows areas with overtourism.</p>
+            <p class="text-description">This map-based visualization highlights countries experiencing overtourism, where the influx of tourists outpaces the capacity of local resources. Areas suffering from high tourist density are marked, providing a clear visual representation of the geographic distribution of overtourism hotspots. This is valuable for understanding where overcrowding might be straining local infrastructure and environments.</p>
         </div>
 
         <!-- Undertourism Geo -->
         <div class="vis-container">
             <div id="undertourism-geo"></div>
-            <p class="text-description">This visualization displays regions with undertourism.</p>
+            <p class="text-description">In contrast to the overtourism map, this visualization displays regions where tourism is significantly underdeveloped or lacking. Countries limited tourist engagement are shaded, indicating potential for tourism development. It helps identify destinations that could benefit from increased tourism to bolster their economy or cultural exchanges.</p>
         </div>
 
         <!-- Overtourism Bar Chart -->
         <div class="vis-container">
             <div id="overtourism-bar"></div>
-            <p class="text-description">Bar chart showing overtourism percentages across countries.</p>
+            <p class="text-description">This bar chart quantifies the overtourism phenomenon by showing how many tourists outnumber locals in various destinations. Countries are ranked by the ratio of tourists to local residents, providing a stark visual comparison of the extent to which tourism is overwhelming local populations.</p>
         </div>
 
         <!-- Undertourism Line Chart -->
         <div class="vis-container">
             <div id="undertourism-line"></div>
-            <p class="text-description">Line chart depicting undertourism trends over the years.</p>
+            <p class="text-description">The undertourism line chart tracks the trends of tourist numbers in regions where tourism is still developing. It plots changes in tourist volume over time, helping identify patterns of growth or stagnation. This can be useful for tracking progress in destinations that are seeking to attract more visitors.</p>
         </div>
 
         <!-- World Tourism Development Bubble -->
         <div class="vis-container">
             <div id="wtdi-bubble"></div>
-            <p class="text-description">Bubble chart representing tourism development index of top 50 countries.</p>
+            <p class="text-description">This bubble chart uses the World Tourism Development Index to plot countries based on their tourism development scores. The size of each bubble reflects the country’s rank in tourism performance, colour indicates the country, and the positioning indicates the year along with the index value. This visualization offers a broad perspective on how well countries are doing in fostering sustainable tourism.</p>
         </div>
 
         <!-- World Tourism Development Treemap -->
         <div class="vis-container">
             <div id="wtdi-treemap"></div>
-            <p class="text-description">Treemap visualization for tourism development indicators.</p>
+            <p class="text-description">The treemap groups countries based on income levels, visualizing the distribution of tourism development across different economic categories. Countries are represented by boxes, with the colour corresponds to the economic category. This visualization helps understand how tourism development varies across different income groups and geographic regions. Here, all the countries are included but to begin with, only Top 50 are shown.</p>
         </div>
 
     </div>
@@ -101,7 +108,6 @@
     
 </body>
 </html>
-
 
 
 
