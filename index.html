@@ -14,15 +14,22 @@
             padding: 0;
             background-color: #8B4513; /* Brown background */
         }
-        #heading, #visualizations, #credits {
+        #heading {
             padding: 20px;
             text-align: center;
-            background-color: white; /* Ensures heading and credits have white background */
+            background-color: white; /* White background for the heading */
+            margin-bottom: 20px; /* Margin to show brown background between heading and next container */
         }
         #heading h1 {
-            font-size: 2em;
+            font-size: 3em; /* Larger heading */
             margin-bottom: 20px;
             color: black; /* Black text for the heading */
+        }
+        #visualizations {
+            padding: 20px;
+            text-align: center;
+            background-color: white;
+            margin-bottom: 20px; /* Space for brown background */
         }
         .vis-container {
             margin: 40px auto;
@@ -33,13 +40,18 @@
             border-radius: 10px; /* Rounded corners */
         }
         #credits {
-            font-size: 1.2em;
-            margin-top: 40px;
+            padding: 20px;
+            text-align: center;
+            background-color: white; /* White background for credits */
+            margin-top: 20px; /* Space for brown background */
+        }
+        #credits p {
+            font-size: 1.5em; /* Larger font size for credits */
             color: black; /* Black text for credits */
         }
         .text-description {
             margin-top: 10px;
-            font-size: 1em;
+            font-size: 1.2em; /* Slightly larger text below visualizations */
             color: #555;
         }
     </style>
@@ -48,7 +60,7 @@
 
     <!-- Heading Container -->
     <div id="heading">
-        <h1>Tourism Visualizations</h1>
+        <h1>Tourism in the World</h1>
     </div>
 
     <!-- Visualizations Container -->
@@ -112,8 +124,3 @@
     
 </body>
 </html>
-
-
-
-
-
